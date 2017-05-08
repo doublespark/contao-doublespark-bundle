@@ -14,8 +14,5 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class DoublesparkBundle extends Bundle
 {
-    public function getParent()
-    {
-        return 'ContaoCoreBundle';
-    }
+
 }
