@@ -1,0 +1,7 @@
+.word-count-field { height:auto; }
+.word-count-invalid input,
+.word-count-invalid input:focus,
+.word-count-invalid textarea { color:red; border-color:red; }
+.word-count-invalid label,
+.word-count-invalid .desc-word-count,
+.word-count-invalid .title-word-count { color:red; }

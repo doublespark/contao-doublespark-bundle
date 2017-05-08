@@ -1,0 +1,18 @@
+<div id="<?php echo $this->elementID; ?>" class="<?php echo $this->class; ?> block"<?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+    <div class="inside">
+        <?php if(!empty($this->left_text) || $this->leftScreenHTML): ?>
+            <div class="left-col">
+                <?php if($this->leftScreenHTML AND $this->screenLeftPosition=='above') echo $this->leftScreenHTML; ?>
+                <?php echo $this->left_text; ?>
+                <?php if($this->leftScreenHTML AND $this->screenLeftPosition=='below') echo $this->leftScreenHTML; ?>
+            </div>
+        <?php endif; ?>
+        <?php if(!empty($this->right_text) || $this->rightScreenHTML): ?>
+            <div class="right-col">
+                <?php if($this->rightScreenHTML AND $this->screenRightPosition=='above') echo $this->rightScreenHTML; ?>
+                <?php echo $this->right_text; ?>
+                <?php if($this->rightScreenHTML AND $this->screenRightPosition=='below') echo $this->rightScreenHTML; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
