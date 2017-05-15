@@ -6,21 +6,25 @@
 .custom-save a {
     cursor:pointer;
     width:110px;
-    color: #666966;
+    color: #FFF;
     line-height: 1;
-    text-shadow: 1px 1px 0 #eee;
-    background: #eee;
-    background-image: -moz-linear-gradient(bottom,#ccc 0,#eee 60%);
-    background-image: -webkit-linear-gradient(bottom,#ccc 0,#eee 60%);
-    background-image: -o-linear-gradient(bottom,#ccc 0,#eee 60%);
-    background-image: -ms-linear-gradient(bottom,#ccc 0,#eee 60%);
-    background-image: linear-gradient(bottom,#ccc 0,#eee 60%);
+    background: #6db032;
+    background-image: -moz-linear-gradient(bottom,#65a62b 0,#6db032 60%);
+    background-image: -webkit-linear-gradient(bottom,#65a62b 0,#6db032 60%);
+    background-image: -o-linear-gradient(bottom,#65a62b 0,#6db032 60%);
+    background-image: -ms-linear-gradient(bottom,#65a62b 0,#6db032 60%);
+    background-image: linear-gradient(bottom,#65a62b 0,#6db032 60%);
     display:block;
     border:1px solid #CCC;
     padding:15px;
     text-align:center;
     border-radius:10px;
     font-size:20px;
+}
+
+.custom-save a:hover {
+    background: #64a62a;
+    background-image: none;
 }
 
 .custom-save a:hover { box-shadow: 0 0 3px #aaa; }
