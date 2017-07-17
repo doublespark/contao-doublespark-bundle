@@ -41,6 +41,17 @@ if(TL_MODE == 'BE')
 }
 
 /**
+ * Backend modules
+ */
+array_insert($GLOBALS['BE_MOD']['system'], 1, array
+(
+    'meta_imex' => array
+    (
+        'callback'   => 'Doublespark\BackendModules\MetaImportExport'
+    ),
+));
+
+/**
  * Remove locale from URL
  */
 $GLOBALS['TL_HOOKS']['generatePage'][] = array('Doublespark\Hooks\HookGeneratePage','addCanonicalTag');
