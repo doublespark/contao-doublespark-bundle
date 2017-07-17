@@ -1,6 +1,11 @@
 Doublespark module
 =================
 
+Version 1.0.3 (2017-07-17)
+--------------------------
+## Feature
+- Add import/export feature
+
 Version 1.0.2 (2017-05-09)
 --------------------------
 ## Updated
