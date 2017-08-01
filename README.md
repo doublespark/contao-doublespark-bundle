@@ -8,6 +8,21 @@ Adds canonical meta tag to all pages. This can be manually overridden in the sit
 ### BoxLink content element
 This is a custom content element that allows for the creation of a clickable box with an image.
 
+### Double text element
+A text element that contains two text inputs for two-column text sections.
+
+### Parallax content element
+A content element for creating parallax sections
+
+### Meta import/export
+Export and re-import page meta fields
+
+### Page meta character counts
+Count characters on meta title and meta description field
+
+### Custom save button
+A custom save button for the backend, fixed to the top right for easy access
+
 Installation
 ============
 
