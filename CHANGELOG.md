@@ -1,6 +1,12 @@
 Doublespark module
 =================
 
+Version 1.0.4 (2017-08-18)
+--------------------------
+## Feature
+- Remove trailing slashes from canonicals
+- Correctly identify protocol
+
 Version 1.0.3 (2017-07-17)
 --------------------------
 ## Feature
