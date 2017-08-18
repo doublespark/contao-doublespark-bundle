@@ -13,7 +13,7 @@ class HookGeneratePage
     public function addCanonicalTag(PageModel $objPage)
     {
         // Default location
-        $location= '/';
+        $location= '';
 
         if(!empty($objPage->rel_canonical) AND !in_array($objPage->rel_canonical,['home','index']) AND $objPage->canonical_use_page_url != 1)
         {
@@ -34,7 +34,7 @@ class HookGeneratePage
             $location = '/' . $objPage->alias;
         }
 
-        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
+        $protocol = $_SERVER['HTTPS'] ? 'https://' : 'http://';
 
         // This is the full URL
         $canonicalURL = $protocol . $_SERVER['HTTP_HOST'] . $location .  $GLOBALS['TL_CONFIG']['urlSuffix'];
@@ -45,6 +45,6 @@ class HookGeneratePage
             $canonicalURL = $objPage->rel_canonical_url;
         }
 
-        $GLOBALS['TL_HEAD'][] = '<link rel="canonical" href="'. $canonicalURL .'" />';
+        $GLOBALS['TL_HEAD'][] = '<link rel="canonical" href="'. rtrim($canonicalURL,'/') .'" />';
     }
 }
