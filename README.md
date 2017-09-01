@@ -2,6 +2,9 @@ Doublespark Contao bundle
 ===========================
 This bundle extends Contao 4 with the following features:
 
+### Lowercase alias
+Enforce lower case news and page alias
+
 ### Canonical URLs
 Adds canonical meta tag to all pages. This can be manually overridden in the site structure.
 
