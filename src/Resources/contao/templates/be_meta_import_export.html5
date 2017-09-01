@@ -26,7 +26,7 @@
 
     <div class="import-wrapper" style="margin-bottom:20px;">
         <h3>Import</h3>
-        <form method="post" action="/app_dev.php/contao?do=meta_imex" enctype="multipart/form-data">
+        <form method="post" action="/contao?do=meta_imex" enctype="multipart/form-data">
             <div>
             <label for="meta_csv">Select file</label>
             <input id="meta_csv" type="file" name="meta_csv"/>
