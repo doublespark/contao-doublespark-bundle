@@ -1,6 +1,14 @@
 Doublespark module
 =================
 
+Version 1.0.5 (2017-09-01)
+--------------------------
+## Feature
+- Enforce lowercase alias for news items and pages
+
+## Fixed
+- Removed reference to app_dev.php in import/export template
+
 Version 1.0.4 (2017-08-18)
 --------------------------
 ## Feature
