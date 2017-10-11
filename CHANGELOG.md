@@ -1,6 +1,11 @@
 Doublespark module
 =================
 
+Version 1.0.6 (2017-10-11)
+--------------------------
+## Fixed
+- Use page title for auto-alias
+
 Version 1.0.5 (2017-09-01)
 --------------------------
 ## Feature
