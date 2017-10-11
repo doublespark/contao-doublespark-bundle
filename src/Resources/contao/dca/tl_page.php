@@ -91,7 +91,7 @@ class tl_ds_page extends \Backend
         if ($varValue == '')
         {
             $autoAlias = true;
-            $varValue = strtolower(StringUtil::generateAlias($dc->activeRecord->headline));
+            $varValue = strtolower(StringUtil::generateAlias($dc->activeRecord->title));
         }
 
         $objAlias = $this->Database->prepare("SELECT id FROM tl_page WHERE alias=?")
