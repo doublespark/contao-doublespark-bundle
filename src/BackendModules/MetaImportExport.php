@@ -34,8 +34,6 @@ class MetaImportExport extends BackendModule {
 
     protected $warnings = array();
 
-    protected $arrExportPageIds = array();
-
     /**
      * Generate the module
      * @return void
@@ -146,68 +144,92 @@ class MetaImportExport extends BackendModule {
 
     protected function handleExport()
     {
-        $arrPageIds = \Input::post('roots');
+        $arrRootPageIds = \Input::post('roots');
 
-        if(!is_array($arrPageIds) || count($arrPageIds) < 1)
+        if(!is_array($arrRootPageIds) || count($arrRootPageIds) < 1)
         {
             $this->errors[] = 'Please select at least one site to export';
             return;
         }
 
-        $this->getPagesByPids($arrPageIds);
+        // This will hold the rows to be exported
+        $arrExportRows = [];
 
-        $objPageDetails = \Database::getInstance()->prepare('SELECT id, title, alias, pageTitle, description FROM tl_page WHERE id IN('.implode(',',$this->arrExportPageIds).')')->execute();
+        // Header row
+        $row = [];
 
-        if($objPageDetails->numRows > 0)
+        // Generate the first (header) row form the field map labels
+        foreach($this->arrFieldMap as $label => $field)
         {
-            $arrExportRows = array();
-
-            // Header row
-            $row = array();
-
-            foreach($this->arrFieldMap as $label => $field)
-            {
-                $row[] = $label;
-            }
-
-            $arrExportRows[] = $row;
-
-            // Build page rows
-            while($objPageDetails->next())
-            {
-                $row = array();
-
-                foreach($this->arrFieldMap as $label => $field)
-                {
-                    $row[] = $objPageDetails->$field;
-                }
-
-                $arrExportRows[] = $row;
-            }
-
-            // Create CSV
-            $csv = Writer::createFromFileObject(new \SplTempFileObject());
-            $csv->insertAll($arrExportRows);
-            $csv->output('page-meta-'.date('dmY').'.csv');
-            die;
+            $row[] = $label;
         }
+
+        $arrExportRows[] = $row;
+
+        foreach($arrRootPageIds as $rootPageId)
+        {
+            $arrExportPageIds = $this->getPagesThatBelongToRoot($rootPageId);
+
+            $objPageDetails = \Database::getInstance()->prepare('SELECT id, title, alias, pageTitle, description FROM tl_page WHERE id IN('.implode(',',$arrExportPageIds).')')->execute();
+
+            if($objPageDetails->numRows > 0)
+            {
+                // Build page rows
+                while($objPageDetails->next())
+                {
+                    $row = [];
+
+                    foreach($this->arrFieldMap as $label => $field)
+                    {
+                        $row[] = $objPageDetails->$field;
+                    }
+
+                    $arrExportRows[] = $row;
+                }
+            }
+        }
+
+        // Create CSV
+        $csv = Writer::createFromFileObject(new \SplTempFileObject());
+        $csv->insertAll($arrExportRows);
+        $csv->output('page-meta-'.date('dmY').'.csv');
+        die;
     }
 
-    protected function getPagesByPids($arrPids)
+
+    /**
+     * Find all child pages from a collection of parent page IDs
+     * @param $arrSearchPids
+     * @param array $arrPageIds
+     * @return array
+     */
+    protected function getPagesByPids($arrSearchPids, &$arrPageIds = [])
     {
-        $objPages = \Database::getInstance()->query('SELECT id FROM tl_page WHERE pid IN('.implode(',',$arrPids).')');
+        $objPages = \Database::getInstance()->query('SELECT id FROM tl_page WHERE pid IN('.implode(',',$arrSearchPids).')');
 
         if($objPages->numRows > 0)
         {
-            $arrPids = array();
+            $arrIds = [];
 
             while($objPages->next())
             {
-                $this->arrExportPageIds[] = $objPages->id;
-                $arrPids[] = $objPages->id;
+                $arrIds[]     = $objPages->id; // This is just for the page IDs fetched in this batch
+                $arrPageIds[] = $objPages->id; // This is passed by reference and contains all the previously fetched pageIds
             }
 
-            $this->getPagesByPids($arrPids);
+            $this->getPagesByPids($arrIds,$arrPageIds);
         }
+
+        return $arrPageIds;
+    }
+
+    /**
+     * Get all child pages of a root page
+     * @param $rootPageId
+     * @return array
+     */
+    protected function getPagesThatBelongToRoot($rootPageId)
+    {
+        return $this->getPagesByPids([$rootPageId]);
     }
 }
