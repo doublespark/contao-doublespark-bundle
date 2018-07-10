@@ -49,6 +49,10 @@ array_insert($GLOBALS['BE_MOD']['system'], 1, array
     (
         'callback'   => 'Doublespark\BackendModules\MetaImportExport'
     ),
+    'local_assets' => array
+    (
+        'tables' => array('tl_ds_local_assets')
+    )
 ));
 
 /**
@@ -62,3 +66,8 @@ $GLOBALS['TL_HOOKS']['generatePage'][] = array('Doublespark\Hooks\HookGeneratePa
 $GLOBALS['TL_CTE']['links']['boxlink'] = 'Doublespark\Elements\ContentBoxLink';
 $GLOBALS['TL_CTE']['media']['parallax_section'] = 'Doublespark\Elements\ParallaxSectionElement';
 $GLOBALS['TL_CTE']['texts']['double_text'] = 'Doublespark\Elements\DoubleTextElement';
+
+/**
+ * Cron jobs
+ */
+$GLOBALS['TL_CRON']['daily']['updateLocalAssets'] = array('Doublespark\Cron\DsAutomator', 'updateLocalAssets');

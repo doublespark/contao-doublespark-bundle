@@ -9,3 +9,4 @@ $GLOBALS['TL_LANG']['CTE']['double_text']      = array('Text (2 columns)', '');
 
 
 $GLOBALS['TL_LANG']['MOD']['meta_imex'] = array('Meta import/export', '');
+$GLOBALS['TL_LANG']['MOD']['local_assets'] = array('Local assets','Define remote assets to save locally');
