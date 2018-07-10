@@ -1,6 +1,11 @@
 Doublespark module
 =================
 
+Version 1.0.7 (2018-10-07)
+--------------------------
+## Feature
+- Add ability to save and sync remote files to local disk
+
 Version 1.0.6 (2017-10-11)
 --------------------------
 ## Fixed

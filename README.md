@@ -2,6 +2,9 @@ Doublespark Contao bundle
 ===========================
 This bundle extends Contao 4 with the following features:
 
+### Remote assets
+Define remote assets that will be synced locally to web/local-assets
+
 ### Lowercase alias
 Enforce lower case news and page alias
 
