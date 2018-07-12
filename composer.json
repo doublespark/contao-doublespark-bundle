@@ -12,7 +12,8 @@
   "require": {
     "php": ">=7.0.0",
     "contao/core-bundle": "~4.0",
-    "league/csv": "^8.0"
+    "league/csv": "^8.0",
+    "cloudflare/sdk": "^1.1"
   },
   "autoload": {
     "psr-4": {
