@@ -3,7 +3,7 @@
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace Doublespark\Cron;
+namespace Doublespark\Doublespark\Cron;
 
 /**
 * Provide methods to run automated jobs.

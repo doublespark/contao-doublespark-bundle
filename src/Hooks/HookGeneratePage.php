@@ -1,6 +1,6 @@
 <?php
 
-namespace Doublespark\Hooks;
+namespace Doublespark\Doublespark\Hooks;
 
 use Contao\PageModel;
 

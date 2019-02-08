@@ -1,6 +1,6 @@
 <?php
 
-namespace Doublespark\BackendModules;
+namespace Doublespark\Doublespark\BackendModules;
 
 use Contao\BackendModule;
 use Contao\PageModel;

@@ -47,7 +47,7 @@ array_insert($GLOBALS['BE_MOD']['system'], 1, array
 (
     'meta_imex' => array
     (
-        'callback'   => 'Doublespark\BackendModules\MetaImportExport'
+        'callback'   => 'Doublespark\Doublespark\BackendModules\MetaImportExport'
     ),
     'local_assets' => array
     (
@@ -58,16 +58,16 @@ array_insert($GLOBALS['BE_MOD']['system'], 1, array
 /**
  * Remove locale from URL
  */
-$GLOBALS['TL_HOOKS']['generatePage'][] = array('Doublespark\Hooks\HookGeneratePage','addCanonicalTag');
+$GLOBALS['TL_HOOKS']['generatePage'][] = array('Doublespark\Doublespark\Hooks\HookGeneratePage','addCanonicalTag');
 
 /**
  * Add box element
  */
-$GLOBALS['TL_CTE']['links']['boxlink'] = 'Doublespark\Elements\ContentBoxLink';
-$GLOBALS['TL_CTE']['media']['parallax_section'] = 'Doublespark\Elements\ParallaxSectionElement';
-$GLOBALS['TL_CTE']['texts']['double_text'] = 'Doublespark\Elements\DoubleTextElement';
+$GLOBALS['TL_CTE']['links']['boxlink']          = 'Doublespark\Doublespark\Elements\ContentBoxLink';
+$GLOBALS['TL_CTE']['media']['parallax_section'] = 'Doublespark\Doublespark\Elements\ParallaxSectionElement';
+$GLOBALS['TL_CTE']['texts']['double_text']      = 'Doublespark\Doublespark\Elements\DoubleTextElement';
 
 /**
  * Cron jobs
  */
-$GLOBALS['TL_CRON']['daily']['updateLocalAssets'] = array('Doublespark\Cron\DsAutomator', 'updateLocalAssets');
+$GLOBALS['TL_CRON']['daily']['updateLocalAssets'] = array('Doublespark\Doublespark\Cron\DsAutomator', 'updateLocalAssets');

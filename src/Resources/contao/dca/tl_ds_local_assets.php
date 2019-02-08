@@ -130,7 +130,7 @@ class tl_ds_local_assets extends Backend
      */
     public function updateLocalAssets()
     {
-        $dsAutomator = new \Doublespark\Cron\DsAutomator();
+        $dsAutomator = new \Doublespark\Doublespark\Cron\DsAutomator();
         $dsAutomator->updateLocalAssets();
     }
 

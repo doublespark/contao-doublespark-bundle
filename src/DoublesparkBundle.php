@@ -3,7 +3,7 @@
 /***
  * Doublespark bundle
  */
-namespace Doublespark;
+namespace Doublespark\Doublespark;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
