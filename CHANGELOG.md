@@ -1,6 +1,11 @@
 Doublespark module
 =================
 
+Version 1.0.8 (2019-08-01)
+--------------------------
+## Feature
+- Add support for contao manager
+
 Version 1.0.7 (2018-10-07)
 --------------------------
 ## Feature
