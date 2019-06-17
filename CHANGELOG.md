@@ -1,6 +1,11 @@
 Doublespark module
 =================
 
+Version 1.0.10 (2019-08-01)
+--------------------------
+## Fixed
+- Add character counts to export
+
 Version 1.0.9 (2019-08-01)
 --------------------------
 ## Fixed
