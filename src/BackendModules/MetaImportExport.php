@@ -25,7 +25,9 @@ class MetaImportExport extends BackendModule {
         'Title' => 'title',
         'Alias' => 'alias',
         'Meta title' => 'pageTitle',
-        'Meta description' => 'description'
+        'Title Chars' => null,
+        'Meta description' => 'description',
+        'Desc Chars' => null
     ];
 
     protected $errors = array();
@@ -181,7 +183,20 @@ class MetaImportExport extends BackendModule {
 
                     foreach($this->arrFieldMap as $label => $field)
                     {
-                        $row[] = $objPageDetails->$field;
+                        if(!empty($field))
+                        {
+                            $row[] = $objPageDetails->$field;
+                        }
+
+                        if($label === 'Title Chars')
+                        {
+                            $row[] = strlen(trim($objPageDetails->pageTitle));
+                        }
+
+                        if($label === 'Desc Chars')
+                        {
+                            $row[] = strlen(trim($objPageDetails->description));
+                        }
                     }
 
                     $arrExportRows[] = $row;
