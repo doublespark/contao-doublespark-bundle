@@ -1,17 +1,22 @@
 Doublespark module
 =================
 
-Version 1.0.10 (2019-08-01)
+Version 1.0.11 (2019-06-19)
 --------------------------
-## Fixed
+## Updated
+- Use excel formula instead of string counts in character count columns
+
+Version 1.0.10 (2019-06-18)
+--------------------------
+## Feature
 - Add character counts to export
 
-Version 1.0.9 (2019-08-01)
+Version 1.0.9 (2019-01-08)
 --------------------------
 ## Fixed
 - Support for contao manager
 
-Version 1.0.8 (2019-08-01)
+Version 1.0.8 (2019-01-08)
 --------------------------
 ## Feature
 - Add support for contao manager
