@@ -174,6 +174,9 @@ class MetaImportExport extends BackendModule {
 
             $objPageDetails = \Database::getInstance()->prepare('SELECT id, title, alias, pageTitle, description FROM tl_page WHERE id IN('.implode(',',$arrExportPageIds).')')->execute();
 
+            // Items will start on row 2 of the CSV
+            $rowNumber = 2;
+
             if($objPageDetails->numRows > 0)
             {
                 // Build page rows
@@ -190,14 +193,16 @@ class MetaImportExport extends BackendModule {
 
                         if($label === 'Title Chars')
                         {
-                            $row[] = strlen(trim($objPageDetails->pageTitle));
+                            $row[] = '=LEN(D'.$rowNumber.')';
                         }
 
                         if($label === 'Desc Chars')
                         {
-                            $row[] = strlen(trim($objPageDetails->description));
+                            $row[] = '=LEN(F'.$rowNumber.')';
                         }
                     }
+
+                    $rowNumber++;
 
                     $arrExportRows[] = $row;
                 }
