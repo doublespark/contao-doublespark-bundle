@@ -1,6 +1,11 @@
 Doublespark module
 =================
 
+Version 1.0.12 (2019-10-10)
+--------------------------
+## Updated
+- Use new image code
+
 Version 1.0.11 (2019-06-19)
 --------------------------
 ## Updated
