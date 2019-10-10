@@ -16,6 +16,9 @@
  */
 namespace Doublespark\Doublespark\Elements;
 
+use Contao\FilesModel;
+use Contao\System;
+use Contao\Validator;
 
 /**
  * Class ContentBoxLink
@@ -44,11 +47,11 @@ class ContentBoxLink extends \Contao\ContentElement
 			return '';
 		}
 
-		$objFile = \FilesModel::findByUuid($this->singleSRC);
+		$objFile = FilesModel::findByUuid($this->singleSRC);
 
 		if ($objFile === null)
 		{
-			if (!\Validator::isUuid($this->singleSRC))
+			if (!Validator::isUuid($this->singleSRC))
 			{
 				return '<p class="error">'.$GLOBALS['TL_LANG']['ERR']['version2format'].'</p>';
 			}
@@ -72,8 +75,11 @@ class ContentBoxLink extends \Contao\ContentElement
 	 */
 	protected function compile()
 	{
+        $container = System::getContainer();
+        $rootDir   = $container->getParameter('kernel.project_dir');
+
 		$this->Template->headline   = $this->headline;
-		$this->Template->singleSRC  = \Image::get($this->singleSRC,580,350,'crop');
+		$this->Template->singleSRC  = $container->get('contao.image.image_factory')->create($rootDir.'/'.$this->singleSRC, [580,350,'crop'])->getUrl($rootDir);
         $this->Template->subHeading = $this->linkbox_subheading;
         $this->Template->linkTitle  = $this->linkTitle ? $this->linkTitle : 'View more';
 	}
@@ -85,7 +91,7 @@ class ContentBoxLink extends \Contao\ContentElement
 	 */
 	protected function fetchFilePath($uuid)
 	{
-		$objFile = \FilesModel::findByUuid($uuid);
+		$objFile = FilesModel::findByUuid($uuid);
 
 		if($objFile === null || !is_file(TL_ROOT . '/' . $objFile->path))
 		{

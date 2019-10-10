@@ -15,6 +15,8 @@
  * Run in a custom namespace, so the class can be replaced
  */
 namespace Doublespark\Doublespark\Elements;
+use Contao\FilesModel;
+use Contao\Validator;
 
 
 /**
@@ -25,18 +27,11 @@ namespace Doublespark\Doublespark\Elements;
  */
 class ParallaxSectionElement extends \Contao\ContentElement
 {
-
 	/**
 	 * Template
 	 * @var string
 	 */
 	protected $strTemplate = 'ce_parallax_section';
-
-    /**
-     * Counter to increment CSS ids of screens
-     * @var int
-     */
-    protected $screensCount = 0;
 
 	/**
 	 * Return if the image does not exist
@@ -49,11 +44,11 @@ class ParallaxSectionElement extends \Contao\ContentElement
 			return '';
 		}
 
-		$objFile = \FilesModel::findByUuid($this->singleSRC);
+		$objFile = FilesModel::findByUuid($this->singleSRC);
 
 		if ($objFile === null)
 		{
-			if (!\Validator::isUuid($this->singleSRC))
+			if (!Validator::isUuid($this->singleSRC))
 			{
 				return '<p class="error">'.$GLOBALS['TL_LANG']['ERR']['version2format'].'</p>';
 			}
@@ -89,37 +84,9 @@ class ParallaxSectionElement extends \Contao\ContentElement
             $GLOBALS['TL_HEAD']['parallax'] = '<style type="text/css">#'.$cssID.'{background-image:url(\''.$this->singleSRC.'\');}</style>';
         }
 
-        if($this->addScreenLeft)
-        {
-            $this->Template->leftScreenHTML = $this->getScreenHtml($this->leftScreenSRC);
-        }
-
-        if($this->addScreenRight)
-        {
-            $this->Template->rightScreenHTML = $this->getScreenHtml($this->rightScreenSRC);
-        }
-
 		// Template vars
         $this->Template->elementID = $cssID;
 	}
-
-    /**
-     * Generates a screen HTML element
-     * @param $src
-     * @return string
-     */
-	protected function getScreenHtml($src)
-    {
-        $this->screensCount++;
-
-        $objModel = new \ContentModel();
-        $objModel->id = $this->id.$this->screensCount;
-        $objModel->singleSRC = $src;
-        $objModel->type = 'computer_image';
-
-        $objComputerImage = new ComputerImageElement($objModel);
-        return $objComputerImage->generate();
-    }
 
 	/**
 	 * Fetches a file path based on it's uuid, returns false if file doesn't exist
@@ -128,7 +95,7 @@ class ParallaxSectionElement extends \Contao\ContentElement
 	 */
 	protected function fetchFilePath($uuid)
 	{
-		$objFile = \FilesModel::findByUuid($uuid);
+		$objFile = FilesModel::findByUuid($uuid);
 
 		if($objFile === null || !is_file(TL_ROOT . '/' . $objFile->path))
 		{
