@@ -45,11 +45,11 @@ if(TL_MODE == 'BE')
  */
 array_insert($GLOBALS['BE_MOD']['system'], 1, array
 (
-    'meta_imex' => array
+    'ds_meta_imex' => array
     (
         'callback'   => 'Doublespark\Doublespark\BackendModules\MetaImportExport'
     ),
-    'local_assets' => array
+    'ds_local_assets' => array
     (
         'tables' => array('tl_ds_local_assets')
     )
@@ -63,8 +63,8 @@ $GLOBALS['TL_HOOKS']['generatePage'][] = array('Doublespark\Doublespark\Hooks\Ho
 /**
  * Add box element
  */
-$GLOBALS['TL_CTE']['texts']['content_grid_start'] = 'Doublespark\Doublespark\Elements\ContentGridStartElement';
-$GLOBALS['TL_CTE']['texts']['content_grid_end']   = 'Doublespark\Doublespark\Elements\ContentGridEndElement';
+$GLOBALS['TL_CTE']['texts']['ds_content_grid_start'] = 'Doublespark\Doublespark\Elements\ContentGridStartElement';
+$GLOBALS['TL_CTE']['texts']['ds_content_grid_end']   = 'Doublespark\Doublespark\Elements\ContentGridEndElement';
 
 /**
  * Cron jobs
