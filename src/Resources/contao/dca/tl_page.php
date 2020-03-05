@@ -45,27 +45,16 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['canonical_use_page_url'] = array
 
 /**
  * Class tl_ds_page
- *
- * Provide miscellaneous methods that are used by the data configuration array.
- * @copyright  Leo Feyer 2005-2013
- * @author     Leo Feyer <https://contao.org>
- * @package    Controller
  */
 class tl_ds_page extends \Backend
 {
-	/**
-	 * Auto-generate a page alias if it has not been set yet
-	 * @param mixed
-	 * @param DataContainer
-	 * @return string
-	 */
 	public function generateCanonical($varValue, DataContainer $dc)
 	{
 		// Generate an alias if there is none
 		if ($varValue == '')
         {
-            $varValue = \StringUtil::restoreBasicEntities($varValue);
-			$varValue = standardize($varValue);
+            $varValue = \Contao\StringUtil::restoreBasicEntities($varValue);
+			$varValue = \Contao\StringUtil::standardize($varValue);
 		}
 
 		return $varValue;
