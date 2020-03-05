@@ -1,10 +1,18 @@
 Doublespark module
 =================
 
+Version 1.0.13 (2020-03-05)
+--------------------------
+## Fixes
+- Remove unused code from double text template
+
 Version 1.0.12 (2019-10-10)
 --------------------------
 ## Updated
 - Use new image code
+
+## Feature
+- Add content grid elements
 
 Version 1.0.11 (2019-06-19)
 --------------------------
