@@ -63,9 +63,11 @@ $GLOBALS['TL_HOOKS']['generatePage'][] = array('Doublespark\Doublespark\Hooks\Ho
 /**
  * Add box element
  */
-$GLOBALS['TL_CTE']['links']['boxlink']          = 'Doublespark\Doublespark\Elements\ContentBoxLink';
-$GLOBALS['TL_CTE']['media']['parallax_section'] = 'Doublespark\Doublespark\Elements\ParallaxSectionElement';
-$GLOBALS['TL_CTE']['texts']['double_text']      = 'Doublespark\Doublespark\Elements\DoubleTextElement';
+$GLOBALS['TL_CTE']['links']['boxlink']            = 'Doublespark\Doublespark\Elements\ContentBoxLink';
+$GLOBALS['TL_CTE']['media']['parallax_section']   = 'Doublespark\Doublespark\Elements\ParallaxSectionElement';
+$GLOBALS['TL_CTE']['texts']['double_text']        = 'Doublespark\Doublespark\Elements\DoubleTextElement';
+$GLOBALS['TL_CTE']['texts']['content_grid_start'] = 'Doublespark\Doublespark\Elements\ContentGridStartElement';
+$GLOBALS['TL_CTE']['texts']['content_grid_end']   = 'Doublespark\Doublespark\Elements\ContentGridEndElement';
 
 /**
  * Cron jobs

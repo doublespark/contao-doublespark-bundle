@@ -1,0 +1,6 @@
+<?php if($this->type === 'start'): ?>
+<div class="<?= $this->class ?>  cg-cols-<?= $this->ds_content_grid_columns; ?>"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+<div class="inside">
+<?php else: ?>
+</div></div>
+<?php endif; ?>

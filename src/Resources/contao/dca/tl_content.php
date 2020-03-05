@@ -9,9 +9,19 @@
  * @link    https://contao.org
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  */
-$GLOBALS['TL_DCA']['tl_content']['palettes']['boxlink']          = '{type_legend},type,headline,boxlink_subheading;{link_legend},url,target,linkTitle,embed,titleText,rel;{source_legend},singleSRC,imageUrl;{text_legend},text;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['parallax_section'] = '{type_legend},type,headline;{source_legend},singleSRC,imageUrl;{text_legend},left_text,right_text;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['double_text']      = '{type_legend},type;{text_legend},left_text,right_text;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['boxlink']            = '{type_legend},type,headline,boxlink_subheading;{link_legend},url,target,linkTitle,embed,titleText,rel;{source_legend},singleSRC,imageUrl;{text_legend},text;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['parallax_section']   = '{type_legend},type,headline;{source_legend},singleSRC,imageUrl;{text_legend},left_text,right_text;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['double_text']        = '{type_legend},type;{text_legend},left_text,right_text;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['content_grid_start'] = '{type_legend},type;{config_legend},ds_content_grid_columns;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['content_grid_end']   = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['ds_content_grid_columns'] = [
+    'exclude'   => false,
+    'inputType' => 'select',
+    'options'   => [1,2,3,4,5,6,7,8,9,10],
+    'eval'      => array('mandatory' => true, 'rgxp' => 'natural', 'tl_class'=>'clr'),
+    'sql'       => "int(10) unsigned NOT NULL default 0"
+];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['boxlink_subheading'] = array(
     'label'     => array('Sub-heading','The sub-heading of the box'),
