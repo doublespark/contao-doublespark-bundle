@@ -1,5 +1,11 @@
 Doublespark module
 ==================
+
+Version 2.0.1 (2020-04-02)
+--------------------------
+## Fixes
+- Fix meta import/export form
+
 Version 2.0.0 (2020-03-05)
 --------------------------
 ## Update
