@@ -1,6 +1,11 @@
 Doublespark module
 ==================
 
+Version 2.0.2 (2020-04-08)
+--------------------------
+## Fixes
+- Add BE save button
+
 Version 2.0.1 (2020-04-02)
 --------------------------
 ## Fixes
