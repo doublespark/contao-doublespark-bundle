@@ -7,9 +7,11 @@ if(TL_MODE == 'BE')
 {
     // JS
     $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/doublespark/js/wordCount.js';
+    $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/doublespark/js/saveButton.js';
 
     // CSS
     $GLOBALS['TL_CSS'][] = '/bundles/doublespark/css/wordCount.css';
+    $GLOBALS['TL_CSS'][] = '/bundles/doublespark/css/saveButton.css';
 }
 
 /**
