@@ -172,7 +172,7 @@ class MetaImportExport extends BackendModule {
         {
             $arrExportPageIds = $this->getPagesThatBelongToRoot($rootPageId);
 
-            $objPageDetails = \Database::getInstance()->prepare('SELECT id, title, alias, pageTitle, description FROM tl_page WHERE id IN('.implode(',',$arrExportPageIds).')')->execute();
+            $objPageDetails = \Database::getInstance()->prepare('SELECT id, title, alias, pageTitle, description FROM tl_page WHERE published=1 AND id IN('.implode(',',$arrExportPageIds).')')->execute();
 
             // Items will start on row 2 of the CSV
             $rowNumber = 2;
