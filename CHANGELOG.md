@@ -1,6 +1,11 @@
 Doublespark module
 ==================
 
+Version 2.0.3 (2020-04-08)
+--------------------------
+## Update
+- Import/export - only export published pages
+
 Version 2.0.2 (2020-04-08)
 --------------------------
 ## Fixes
