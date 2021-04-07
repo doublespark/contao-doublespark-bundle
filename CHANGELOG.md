@@ -1,6 +1,11 @@
 Doublespark module
 ==================
 
+Version 2.0.4 (2021-04-07)
+--------------------------
+## Fixes
+- Don't strip trailing slash from canonical urls
+
 Version 2.0.3 (2020-04-08)
 --------------------------
 ## Update
