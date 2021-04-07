@@ -21,6 +21,6 @@ class HookGeneratePage
             $canonicalURL = $objPage->rel_canonical_url;
         }
 
-        $GLOBALS['TL_HEAD'][] = '<link rel="canonical" href="'. rtrim($canonicalURL,'/') .'" />';
+        $GLOBALS['TL_HEAD'][] = '<link rel="canonical" href="'. $canonicalURL .'" />';
     }
 }
