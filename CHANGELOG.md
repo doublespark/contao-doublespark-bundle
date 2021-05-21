@@ -1,5 +1,9 @@
 Doublespark module
 ==================
+Version 2.0.5 (2021-05-21)
+--------------------------
+## Update
+- Add option to strip query strings from canonical URLs
 
 Version 2.0.4 (2021-04-07)
 --------------------------
