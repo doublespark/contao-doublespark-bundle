@@ -21,6 +21,11 @@ class HookGeneratePage
             $canonicalURL = $objPage->rel_canonical_url;
         }
 
+        if($objPage->strip_query_strings)
+        {
+            $canonicalURL = strtok($canonicalURL,'?');
+        }
+
         $GLOBALS['TL_HEAD'][] = '<link rel="canonical" href="'. $canonicalURL .'" />';
     }
 }
