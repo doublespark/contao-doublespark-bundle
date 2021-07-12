@@ -13,6 +13,12 @@ class HookGeneratePage
      */
     public function addCanonicalTag(PageModel $objPage)
     {
+        // Canonical disabled
+        if($objPage->disable_canonical)
+        {
+            return;
+        }
+
         $canonicalURL = Environment::get('uri');
 
         // If a manual URL has been entered, use this instead
