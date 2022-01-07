@@ -1,5 +1,10 @@
 Doublespark module
 ==================
+Version 2.0.8 (2022-07-01)
+--------------------------
+## Update
+- Update league/CSV library
+
 Version 2.0.7 (2021-07-12)
 --------------------------
 ## Update
