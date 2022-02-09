@@ -89,13 +89,15 @@ class MetaImportExport extends BackendModule {
 
             $csv = Reader::createFromPath($file);
 
-            $arrImport = $csv->fetchAssoc(0);
+            $csv->setHeaderOffset(0);
 
             $i  = 0;
             $rc = 1;
 
+            $records = $csv->getRecords();
+
             // Handle each row of the CSV
-            foreach($arrImport as $row)
+            foreach($records as $row)
             {
                 $rc++;
 
@@ -104,7 +106,10 @@ class MetaImportExport extends BackendModule {
                 // Covert keys from labels to database fields
                 foreach($row as $k => $v)
                 {
-                    $pageRow[$this->arrFieldMap[$k]] = $v;
+                    if(isset($this->arrFieldMap[$k]))
+                    {
+                        $pageRow[$this->arrFieldMap[$k]] = $v;
+                    }
                 }
 
                 if(!isset($pageRow['id']) || empty($pageRow['id']))
