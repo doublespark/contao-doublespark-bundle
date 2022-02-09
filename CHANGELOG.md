@@ -1,5 +1,10 @@
 Doublespark module
 ==================
+Version 2.0.9 (2022-09-02)
+--------------------------
+## Fixes
+- Fix CSV import for league/CSV 9
+
 Version 2.0.8 (2022-07-01)
 --------------------------
 ## Update
