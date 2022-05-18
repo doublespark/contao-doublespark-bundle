@@ -30,11 +30,6 @@ array_insert($GLOBALS['BE_MOD']['system'], 1, array
 ));
 
 /**
- * Canonical URL
- */
-$GLOBALS['TL_HOOKS']['generatePage'][] = array('Doublespark\Doublespark\Hooks\HookGeneratePage','addCanonicalTag');
-
-/**
  * Add box element
  */
 $GLOBALS['TL_CTE']['texts']['ds_content_grid_start'] = 'Doublespark\Doublespark\Elements\ContentGridStartElement';
