@@ -30,7 +30,7 @@ array_insert($GLOBALS['BE_MOD']['system'], 1, array
 ));
 
 /**
- * Remove locale from URL
+ * Canonical URL
  */
 $GLOBALS['TL_HOOKS']['generatePage'][] = array('Doublespark\Doublespark\Hooks\HookGeneratePage','addCanonicalTag');
 

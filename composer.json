@@ -10,8 +10,8 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
-    "contao/core-bundle": "^4.9",
+    "php": ">=8.0",
+    "contao/core-bundle": "^4.13",
     "league/csv": "^9.8.0"
   },
   "autoload": {
