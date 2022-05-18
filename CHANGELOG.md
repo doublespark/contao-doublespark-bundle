@@ -1,5 +1,11 @@
 Doublespark module
 ==================
+Version 2.1.0 (2022-05-18)
+--------------------------
+## Updates
+- Update requirements to PHP8.0 and Contao 4.13
+- Remove canonical feature as this is now provided natively from Contao 4.13
+
 Version 2.0.9 (2022-09-02)
 --------------------------
 ## Fixes
