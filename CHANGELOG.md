@@ -1,5 +1,9 @@
 Doublespark module
 ==================
+Version 2.1.2 (2022-06-08)
+-------------------------
+- Fix undefined array key error from DCA (fix bug from previous attempt)
+
 Version 2.1.1 (2022-06-08)
 -------------------------
 - Fix undefined array key error from DCA
