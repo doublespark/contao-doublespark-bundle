@@ -44,7 +44,6 @@ $GLOBALS['TL_DCA']['tl_ds_local_assets'] = array
 		(
 			'all' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
 				'href'                => 'act=select',
 				'class'               => 'header_edit_all',
 				'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"'
@@ -54,32 +53,27 @@ $GLOBALS['TL_DCA']['tl_ds_local_assets'] = array
 		(
 			'edit' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_ds_local_assets']['edit'],
 				'href'                => 'act=edit',
 				'icon'                => 'edit.gif'
 			),
 			'copy' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_ds_local_assets']['copy'],
 				'href'                => 'act=paste&amp;mode=copy',
 				'icon'                => 'copy.gif'
 			),
 			'cut' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_ds_local_assets']['cut'],
 				'href'                => 'act=paste&amp;mode=cut',
 				'icon'                => 'cut.gif'
 			),
 			'delete' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_ds_local_assets']['delete'],
 				'href'                => 'act=delete',
 				'icon'                => 'delete.gif',
 				'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null . '\'))return false;Backend.getScrollOffset()"'
 			),
 			'show' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_ds_local_assets']['show'],
 				'href'                => 'act=show',
 				'icon'                => 'show.gif'
 			)
@@ -105,7 +99,6 @@ $GLOBALS['TL_DCA']['tl_ds_local_assets'] = array
 		),
 		'url' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_ds_local_assets']['url'],
 			'search'                  => true,
 			'inputType'               => 'text',
 			'sql'                     => "varchar(155) NOT NULL default ''",
