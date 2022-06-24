@@ -1,5 +1,10 @@
 Doublespark module
 ==================
+Version 2.0.10 (2022-06-24)
+--------------------------
+## Update
+- Use array key for canonical to allow override
+
 Version 2.0.9 (2022-09-02)
 --------------------------
 ## Fixes
