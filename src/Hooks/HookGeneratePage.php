@@ -32,6 +32,6 @@ class HookGeneratePage
             $canonicalURL = strtok($canonicalURL,'?');
         }
 
-        $GLOBALS['TL_HEAD'][] = '<link rel="canonical" href="'. $canonicalURL .'" />';
+        $GLOBALS['TL_HEAD']['dsCanonical'] = '<link rel="canonical" href="'. $canonicalURL .'" />';
     }
 }
