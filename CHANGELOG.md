@@ -1,5 +1,10 @@
 Doublespark module
 ==================
+Version 2.0.11 (2022-06-24)
+--------------------------
+## Update
+- Check if canonical has already been set
+
 Version 2.0.10 (2022-06-24)
 --------------------------
 ## Update
