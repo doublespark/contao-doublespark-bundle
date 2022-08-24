@@ -36,6 +36,12 @@ $GLOBALS['TL_CTE']['texts']['ds_content_grid_start'] = 'Doublespark\Doublespark\
 $GLOBALS['TL_CTE']['texts']['ds_content_grid_end']   = 'Doublespark\Doublespark\Elements\ContentGridEndElement';
 
 /**
+ * Mark elements as wrappers
+ */
+$GLOBALS['TL_WRAPPERS']['start'][] = 'ds_content_grid_start';
+$GLOBALS['TL_WRAPPERS']['stop'][]  = 'ds_content_grid_end';
+
+/**
  * Cron jobs
  */
 $GLOBALS['TL_CRON']['daily']['updateLocalAssets'] = array('Doublespark\Doublespark\Cron\DsAutomator', 'updateLocalAssets');
