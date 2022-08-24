@@ -1,5 +1,9 @@
 Doublespark module
 ==================
+Version 2.1.4 (2022-08-24)
+-------------------------
+- Make grid elements wrappers
+
 Version 2.1.3 (2022-08-22)
 -------------------------
 - Change minimum PHP version to 7.4
