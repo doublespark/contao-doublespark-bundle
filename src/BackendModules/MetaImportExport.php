@@ -3,9 +3,13 @@
 namespace Doublespark\Doublespark\BackendModules;
 
 use Contao\BackendModule;
+use Contao\Database;
+use Contao\Input;
 use Contao\PageModel;
+use Contao\System;
 use League\Csv\Reader;
 use League\Csv\Writer;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 class MetaImportExport extends BackendModule {
 
@@ -20,7 +24,7 @@ class MetaImportExport extends BackendModule {
      * array['Label'] = 'database_field_name'
      * @var array
      */
-    protected $arrFieldMap = [
+    protected array $arrFieldMap = [
         'Page ID' => 'id',
         'Title' => 'title',
         'Alias' => 'alias',
@@ -30,29 +34,38 @@ class MetaImportExport extends BackendModule {
         'Desc Chars' => null
     ];
 
-    protected $errors = array();
+    /**
+     * @var array
+     */
+    protected array $errors   = [];
 
-    protected $messages = array();
+    /**
+     * @var array
+     */
+    protected array $messages = [];
 
-    protected $warnings = array();
+    /**
+     * @var array
+     */
+    protected array $warnings = [];
 
     /**
      * Generate the module
      * @return void
      */
-    protected function compile()
+    protected function compile(): void
     {
-        if(\Input::post('FORM_SUBMIT') == 'IMPORT_CSV')
+        if(Input::post('FORM_SUBMIT') == 'IMPORT_CSV')
         {
             $this->handleImport();
         }
 
-        if(\Input::post('FORM_SUBMIT') == 'EXPORT_CSV')
+        if(Input::post('FORM_SUBMIT') == 'EXPORT_CSV')
         {
             $this->handleExport();
         }
 
-        $objRootPages = \PageModel::findBy('type','root');
+        $objRootPages = PageModel::findBy('type','root');
 
         $arrRootPages = array();
 
@@ -70,10 +83,16 @@ class MetaImportExport extends BackendModule {
 
         $this->Template->arrRootPages = $arrRootPages;
 
-        $this->Template->rt = \RequestToken::get();
+        /**
+         * @var CsrfTokenManagerInterface $csrfTokenManager
+         */
+        $csrfTokenManager = System::getContainer()->get('contao.csrf.token_manager');
+        $csrfTokenName    = System::getContainer()->getParameter('contao.csrf_token_name');
+
+        $this->Template->rt = $csrfTokenManager->getToken($csrfTokenName)->getValue();
     }
 
-    protected function handleImport()
+    protected function handleImport(): void
     {
         if(isset($_FILES['meta_csv']['name']) AND !empty($_FILES['meta_csv']['name']))
         {
@@ -112,14 +131,14 @@ class MetaImportExport extends BackendModule {
                     }
                 }
 
-                if(!isset($pageRow['id']) || empty($pageRow['id']))
+                if(empty($pageRow['id']))
                 {
                     $this->warnings[] = 'Row '.$rc.': missing page ID.';
                     continue;
                 }
 
                 // Find page object
-                $objPage = \PageModel::findByPk($pageRow['id']);
+                $objPage = PageModel::findByPk($pageRow['id']);
 
                 // Update and save page object
                 if(!is_null($objPage))
@@ -151,7 +170,7 @@ class MetaImportExport extends BackendModule {
 
     protected function handleExport()
     {
-        $arrRootPageIds = \Input::post('roots');
+        $arrRootPageIds = Input::post('roots');
 
         if(!is_array($arrRootPageIds) || count($arrRootPageIds) < 1)
         {
@@ -177,7 +196,7 @@ class MetaImportExport extends BackendModule {
         {
             $arrExportPageIds = $this->getPagesThatBelongToRoot($rootPageId);
 
-            $objPageDetails = \Database::getInstance()->prepare('SELECT id, title, alias, pageTitle, description FROM tl_page WHERE published=1 AND id IN('.implode(',',$arrExportPageIds).')')->execute();
+            $objPageDetails = Database::getInstance()->prepare('SELECT id, title, alias, pageTitle, description FROM tl_page WHERE published=1 AND id IN('.implode(',',$arrExportPageIds).')')->execute();
 
             // Items will start on row 2 of the CSV
             $rowNumber = 2;
@@ -224,13 +243,13 @@ class MetaImportExport extends BackendModule {
 
     /**
      * Find all child pages from a collection of parent page IDs
-     * @param $arrSearchPids
+     * @param array $arrSearchPids
      * @param array $arrPageIds
      * @return array
      */
-    protected function getPagesByPids($arrSearchPids, &$arrPageIds = [])
+    protected function getPagesByPids(array $arrSearchPids, array &$arrPageIds = []): array
     {
-        $objPages = \Database::getInstance()->query('SELECT id FROM tl_page WHERE pid IN('.implode(',',$arrSearchPids).')');
+        $objPages = Database::getInstance()->query('SELECT id FROM tl_page WHERE pid IN('.implode(',',$arrSearchPids).')');
 
         if($objPages->numRows > 0)
         {
@@ -250,10 +269,10 @@ class MetaImportExport extends BackendModule {
 
     /**
      * Get all child pages of a root page
-     * @param $rootPageId
+     * @param int $rootPageId
      * @return array
      */
-    protected function getPagesThatBelongToRoot($rootPageId)
+    protected function getPagesThatBelongToRoot(int $rootPageId): array
     {
         return $this->getPagesByPids([$rootPageId]);
     }
