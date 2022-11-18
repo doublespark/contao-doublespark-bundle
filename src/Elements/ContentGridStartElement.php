@@ -19,7 +19,7 @@ namespace Doublespark\Doublespark\Elements;
 
 use Contao\BackendTemplate;
 use Contao\ContentElement;
-use Patchwork\Utf8;
+use Contao\System;
 
 /**
  * Class DoubleTextElement
@@ -29,15 +29,15 @@ use Patchwork\Utf8;
  */
 class ContentGridStartElement extends ContentElement
 {
-	/**
-	 * Template
-	 * @var string
-	 */
-	protected $strTemplate = 'ce_content_grid';
+    /**
+     * Template
+     * @var string
+     */
+    protected $strTemplate = 'ce_content_grid';
 
-	public function generate()
-	{
-        if (TL_MODE == 'BE')
+    public function generate()
+    {
+        if(System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest()))
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GRID START ('.$this->ds_content_grid_columns.' COLUMNS) ###';
@@ -50,13 +50,13 @@ class ContentGridStartElement extends ContentElement
         }
 
         return parent::generate();
-	}
+    }
 
-	/**
-	 * Generate the content element
-	 */
-	protected function compile()
-	{
+    /**
+     * Generate the content element
+     */
+    protected function compile()
+    {
         $this->Template->type = 'start';
-	}
+    }
 }

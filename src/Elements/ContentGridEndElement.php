@@ -19,6 +19,7 @@ namespace Doublespark\Doublespark\Elements;
 
 use Contao\BackendTemplate;
 use Contao\ContentElement;
+use Contao\System;
 
 /**
  * Class DoubleTextElement
@@ -28,15 +29,15 @@ use Contao\ContentElement;
  */
 class ContentGridEndElement extends ContentElement
 {
-	/**
-	 * Template
-	 * @var string
-	 */
-	protected $strTemplate = 'ce_content_grid';
+    /**
+     * Template
+     * @var string
+     */
+    protected $strTemplate = 'ce_content_grid';
 
-	public function generate()
-	{
-        if (TL_MODE == 'BE')
+    public function generate()
+    {
+        if(System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest()))
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GRID END ###';
@@ -49,13 +50,13 @@ class ContentGridEndElement extends ContentElement
         }
 
         return parent::generate();
-	}
+    }
 
-	/**
-	 * Generate the content element
-	 */
-	protected function compile()
-	{
-	    $this->Template->type = 'end';
-	}
+    /**
+     * Generate the content element
+     */
+    protected function compile()
+    {
+        $this->Template->type = 'end';
+    }
 }
