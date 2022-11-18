@@ -1,5 +1,9 @@
 # Change log
 
+## Version 2.2.1 (2022-11-18)
+- Change composer bundle type
+- Fix Changelog formatting
+
 ## Version 2.2.0 (2022-11-18)
 - Update for Contao 5
 
