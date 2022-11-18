@@ -1,5 +1,6 @@
 Doublespark module
 ==================
+
 Version 2.1.4 (2022-08-24)
 -------------------------
 - Make grid elements wrappers
@@ -22,6 +23,16 @@ Version 2.1.0 (2022-05-18)
 ## Updates
 - Update requirements to PHP8.0 and Contao 4.13
 - Remove canonical feature as this is now provided natively from Contao 4.13
+
+Version 2.0.11 (2022-06-24)
+--------------------------
+## Update
+- Check if canonical has already been set
+
+Version 2.0.10 (2022-06-24)
+--------------------------
+## Update
+- Use array key for canonical to allow override
 
 Version 2.0.9 (2022-09-02)
 --------------------------
