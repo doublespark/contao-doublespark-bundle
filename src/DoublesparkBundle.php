@@ -1,8 +1,5 @@
 <?php
 
-/***
- * Doublespark bundle
- */
 namespace Doublespark\Doublespark;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
@@ -14,5 +11,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class DoublesparkBundle extends Bundle
 {
-
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
 }
