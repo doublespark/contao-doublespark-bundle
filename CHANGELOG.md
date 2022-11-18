@@ -1,5 +1,5 @@
 # Change log
-==================
+
 ## Version 2.2.0 (2022-11-18)
 - Update for Contao 5
 
