@@ -24,10 +24,6 @@ $GLOBALS['BE_MOD']['system']['ds_meta_imex'] = [
     'callback' => 'Doublespark\Doublespark\BackendModules\MetaImportExport'
 ];
 
-$GLOBALS['BE_MOD']['system']['ds_local_assets'] = [
-    'tables' => ['tl_ds_local_assets']
-];
-
 /**
  * Add box element
  */
@@ -39,8 +35,3 @@ $GLOBALS['TL_CTE']['texts']['ds_content_grid_end']   = 'Doublespark\Doublespark\
  */
 $GLOBALS['TL_WRAPPERS']['start'][] = 'ds_content_grid_start';
 $GLOBALS['TL_WRAPPERS']['stop'][]  = 'ds_content_grid_end';
-
-/**
- * Cron jobs
- */
-$GLOBALS['TL_CRON']['daily']['updateLocalAssets'] = array('Doublespark\Doublespark\Cron\DsAutomator', 'updateLocalAssets');
