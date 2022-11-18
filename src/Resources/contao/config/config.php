@@ -1,9 +1,12 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php
+
+use Contao\System;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Backend JS
  */
-if(TL_MODE == 'BE')
+if(System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create('')))
 {
     // JS
     $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/doublespark/js/wordCount.js';
@@ -17,17 +20,13 @@ if(TL_MODE == 'BE')
 /**
  * Backend modules
  */
-array_insert($GLOBALS['BE_MOD']['system'], 1, array
-(
-    'ds_meta_imex' => array
-    (
-        'callback'   => 'Doublespark\Doublespark\BackendModules\MetaImportExport'
-    ),
-    'ds_local_assets' => array
-    (
-        'tables' => array('tl_ds_local_assets')
-    )
-));
+$GLOBALS['BE_MOD']['system']['ds_meta_imex'] = [
+    'callback' => 'Doublespark\Doublespark\BackendModules\MetaImportExport'
+];
+
+$GLOBALS['BE_MOD']['system']['ds_local_assets'] = [
+    'tables' => ['tl_ds_local_assets']
+];
 
 /**
  * Add box element
