@@ -1,5 +1,8 @@
 # Change log
 
+## Version 2.2.2 (2023-01-31)
+- Make backend CSS/JS static
+
 ## Version 2.2.1 (2022-11-18)
 - Change composer bundle type
 - Fix Changelog formatting
