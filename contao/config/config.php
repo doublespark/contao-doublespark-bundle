@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 if(System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create('')))
 {
     // JS
-    $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/doublespark/js/wordCount.js';
-    $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/doublespark/js/saveButton.js';
+    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/doublespark/js/wordCount.js|static';
+    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/doublespark/js/saveButton.js|static';
 
     // CSS
-    $GLOBALS['TL_CSS'][] = '/bundles/doublespark/css/wordCount.css';
-    $GLOBALS['TL_CSS'][] = '/bundles/doublespark/css/saveButton.css';
+    $GLOBALS['TL_CSS'][] = 'bundles/doublespark/css/wordCount.css|static';
+    $GLOBALS['TL_CSS'][] = 'bundles/doublespark/css/saveButton.css|static';
 }
 
 /**
