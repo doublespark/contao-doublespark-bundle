@@ -2,6 +2,9 @@ Doublespark Contao bundle
 ===========================
 This bundle extends Contao with the following features:
 
+### Banner image elements
+Content element for creating responsive banner images with text.
+
 ### Grid content elements
 Content elements for creating content grid HTML wrappers.
 
