@@ -1,5 +1,5 @@
 {
-  "name": "doublespark/doublespark",
+  "name": "doublespark/contao-doublespark-bundle",
   "type": "ds-contao-bundle",
   "description": "Provides custom enhancements for Contao",
   "license": "MIT",
