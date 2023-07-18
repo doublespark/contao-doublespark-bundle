@@ -26,10 +26,11 @@ class ContentGridEndElementController extends AbstractContentElementController
         if($this->isBackendScope($request))
         {
             $objTemplate = new BackendTemplate('be_wildcard');
-            $objTemplate->wildcard = '### GRID END ###';
-            $objTemplate->id = $model->id;
-            $objTemplate->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $model->id;
-
+            $objTemplate->setData([
+                'id' => $model->id,
+                'wildcard' => '### GRID END ###',
+                'href' => 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $model->id
+            ]);
             return $objTemplate->getResponse();
         }
 

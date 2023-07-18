@@ -7,6 +7,7 @@ use Contao\Database;
 use Contao\Input;
 use Contao\PageModel;
 use Contao\System;
+use Contao\Template;
 use League\Csv\Reader;
 use League\Csv\Writer;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
@@ -22,7 +23,7 @@ class MetaImportExport extends BackendModule {
     /**
      * Field map
      * array['Label'] = 'database_field_name'
-     * @var array
+     * @var array<string, null> $arrFieldMap
      */
     protected array $arrFieldMap = [
         'Page ID' => 'id',
@@ -35,19 +36,21 @@ class MetaImportExport extends BackendModule {
     ];
 
     /**
-     * @var array
+     * @var array<string>
      */
     protected array $errors   = [];
 
     /**
-     * @var array
+     * @var array<string>
      */
     protected array $messages = [];
 
     /**
-     * @var array
+     * @var array<string>
      */
     protected array $warnings = [];
+
+    protected ?Template $Template;
 
     /**
      * Generate the module
@@ -168,7 +171,7 @@ class MetaImportExport extends BackendModule {
         }
     }
 
-    protected function handleExport()
+    protected function handleExport(): void
     {
         $arrRootPageIds = Input::post('roots');
 
@@ -243,9 +246,9 @@ class MetaImportExport extends BackendModule {
 
     /**
      * Find all child pages from a collection of parent page IDs
-     * @param array $arrSearchPids
-     * @param array $arrPageIds
-     * @return array
+     * @param array<int> $arrSearchPids
+     * @param array<int> $arrPageIds
+     * @return array<int>
      */
     protected function getPagesByPids(array $arrSearchPids, array &$arrPageIds = []): array
     {
@@ -253,12 +256,17 @@ class MetaImportExport extends BackendModule {
 
         if($objPages->numRows > 0)
         {
+            /**
+             * @param array<int> $arrIds
+             */
             $arrIds = [];
 
             while($objPages->next())
             {
-                $arrIds[]     = $objPages->id; // This is just for the page IDs fetched in this batch
-                $arrPageIds[] = $objPages->id; // This is passed by reference and contains all the previously fetched pageIds
+                $arrRow = $objPages->row();
+
+                $arrIds[]     = $arrRow['id']; // This is just for the page IDs fetched in this batch
+                $arrPageIds[] = $arrRow['id']; // This is passed by reference and contains all the previously fetched pageIds
             }
 
             $this->getPagesByPids($arrIds,$arrPageIds);
@@ -270,7 +278,7 @@ class MetaImportExport extends BackendModule {
     /**
      * Get all child pages of a root page
      * @param int $rootPageId
-     * @return array
+     * @return array<int>
      */
     protected function getPagesThatBelongToRoot(int $rootPageId): array
     {
