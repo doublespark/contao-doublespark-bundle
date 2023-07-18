@@ -6,6 +6,7 @@
 - Elements now use Twig templates
 - Rename package from doublespark/doublespark to doublespark/contao-doublespark-bundle
 - Rename namespace from Doublespark\Doublespark to Doublespark\ContaoDoublesparkBundle
+- Added tests
 
 ## Version 2.2.2 (2023-01-31)
 - Make backend CSS/JS static
