@@ -3,3 +3,4 @@
 error_log
 cache/*.html
 cache/*.css
+.phpunit.result.cache
