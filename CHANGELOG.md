@@ -1,5 +1,12 @@
 # Change log
 
+## Version 2.3.0 (2023-07-18)
+- Add banner image element
+- Refactor elements into Contao 5 fragment controllers
+- Elements now use Twig templates
+- Rename package from doublespark/doublespark to doublespark/contao-doublespark-bundle
+- Rename namespace from Doublespark\Doublespark to Doublespark\ContaoDoublesparkBundle
+
 ## Version 2.2.2 (2023-01-31)
 - Make backend CSS/JS static
 
