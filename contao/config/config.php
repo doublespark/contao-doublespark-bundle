@@ -21,7 +21,7 @@ if(System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest
  * Backend modules
  */
 $GLOBALS['BE_MOD']['system']['ds_meta_imex'] = [
-    'callback' => 'Doublespark\Doublespark\BackendModules\MetaImportExport'
+    'callback' => 'Doublespark\ContaoDoublesparkBundle\BackendModules\MetaImportExport'
 ];
 
 /**

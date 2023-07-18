@@ -1,8 +1,8 @@
 <?php
 
-use Doublespark\Doublespark\Elements\BannerImageElementController;
-use Doublespark\Doublespark\Elements\ContentGridStartElementController;
-use Doublespark\Doublespark\Elements\ContentGridEndElementController;
+use Doublespark\ContaoDoublesparkBundle\Elements\BannerImageElementController;
+use Doublespark\ContaoDoublesparkBundle\Elements\ContentGridStartElementController;
+use Doublespark\ContaoDoublesparkBundle\Elements\ContentGridEndElementController;
 
 $GLOBALS['TL_LANG']['CTE'][BannerImageElementController::TYPE]      = ['Banner Image', 'A banner image with optional text overlay'];
 $GLOBALS['TL_LANG']['CTE'][ContentGridStartElementController::TYPE] = ['Content grid start', 'Open a content grid'];

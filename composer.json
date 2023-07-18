@@ -16,10 +16,10 @@
   },
   "autoload": {
     "psr-4": {
-      "Doublespark\\Doublespark\\": "src/"
+      "Doublespark\\ContaoDoublesparkBundle\\": "src/"
     }
   },
   "extra": {
-    "contao-manager-plugin": "Doublespark\\Doublespark\\ContaoManager\\Plugin"
+    "contao-manager-plugin": "Doublespark\\ContaoDoublesparkBundle\\ContaoManager\\Plugin"
   }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Doublespark\Doublespark\DependencyInjection;
+namespace Doublespark\ContaoDoublesparkBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -14,5 +14,4 @@ class DoublesparkExtension extends Extension {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
         $loader->load('services.yml');
     }
-
 }

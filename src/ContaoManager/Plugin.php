@@ -10,13 +10,13 @@ declare(strict_types=1);
  * @license LGPL-3.0-or-later
  */
 
-namespace Doublespark\Doublespark\ContaoManager;
+namespace Doublespark\ContaoDoublesparkBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Doublespark\Doublespark\DoublesparkBundle;
+use Doublespark\ContaoDoublesparkBundle\DoublesparkBundle;
 
 class Plugin implements BundlePluginInterface
 {

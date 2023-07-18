@@ -1,6 +1,6 @@
 <?php
 
-namespace Doublespark\Doublespark\Elements;
+namespace Doublespark\ContaoDoublesparkBundle\Elements;
 
 use Contao\BackendTemplate;
 use Contao\ContentModel;

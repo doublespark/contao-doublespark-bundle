@@ -1,6 +1,6 @@
 <?php
 
-namespace Doublespark\Doublespark\Elements;
+namespace Doublespark\ContaoDoublesparkBundle\Elements;
 
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;

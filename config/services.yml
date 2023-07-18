@@ -4,5 +4,5 @@ services:
     autowire: true
 
   # Autoconfigure classes
-  Doublespark\Doublespark\:
+  Doublespark\ContaoDoublesparkBundle\:
     resource: '../src/'

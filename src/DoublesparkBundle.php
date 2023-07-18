@@ -1,6 +1,6 @@
 <?php
 
-namespace Doublespark\Doublespark;
+namespace Doublespark\ContaoDoublesparkBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

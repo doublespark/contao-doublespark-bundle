@@ -1,6 +1,6 @@
 <?php
 
-namespace Doublespark\Doublespark\BackendModules;
+namespace Doublespark\ContaoDoublesparkBundle\BackendModules;
 
 use Contao\BackendModule;
 use Contao\Database;

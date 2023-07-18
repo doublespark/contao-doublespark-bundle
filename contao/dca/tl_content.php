@@ -1,8 +1,8 @@
 <?php
 
-use Doublespark\Doublespark\Elements\BannerImageElementController;
-use Doublespark\Doublespark\Elements\ContentGridStartElementController;
-use Doublespark\Doublespark\Elements\ContentGridEndElementController;
+use Doublespark\ContaoDoublesparkBundle\Elements\BannerImageElementController;
+use Doublespark\ContaoDoublesparkBundle\Elements\ContentGridStartElementController;
+use Doublespark\ContaoDoublesparkBundle\Elements\ContentGridEndElementController;
 
 $GLOBALS['TL_DCA']['tl_content']['palettes'][ContentGridStartElementController::TYPE] = '{type_legend},type;{config_legend},ds_gridColumns;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes'][ContentGridendElementController::TYPE]   = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
