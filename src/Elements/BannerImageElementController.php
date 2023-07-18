@@ -13,8 +13,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
-#[AsContentElement(BannerImageController::TYPE, category:'media')]
-class BannerImageController extends AbstractContentElementController
+#[AsContentElement(BannerImageElementController::TYPE, category:'media')]
+class BannerImageElementController extends AbstractContentElementController
 {
     public const TYPE = 'ds_banner_image';
 

@@ -1,11 +1,11 @@
 <?php
 
-use Doublespark\Doublespark\Elements\BannerImageController;
+use Doublespark\Doublespark\Elements\BannerImageElementController;
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ds_content_grid_start'] = '{type_legend},type;{config_legend},ds_content_grid_columns;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ds_content_grid_end']   = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
 
-$GLOBALS['TL_DCA']['tl_content']['palettes'][BannerImageController::TYPE] =
+$GLOBALS['TL_DCA']['tl_content']['palettes'][BannerImageElementController::TYPE] =
     '{type_legend},type;{source_legend},singleSRC,size,overwriteMeta,useOpenGraphImgTag;{protected_legend:hide},protected;{text_legend},addText;{expert_legend:hide},cssID;{invisible_legend:hide},invisible,start,stop'
 ;
 

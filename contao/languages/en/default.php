@@ -1,8 +1,8 @@
 <?php
 
-use Doublespark\Doublespark\Elements\BannerImageController;
+use Doublespark\Doublespark\Elements\BannerImageElementController;
 
-$GLOBALS['TL_LANG']['CTE'][BannerImageController::TYPE] = [
+$GLOBALS['TL_LANG']['CTE'][BannerImageElementController::TYPE] = [
     'Banner Image',
     'A banner image with optional text overlay'
 ];
