@@ -25,12 +25,6 @@ $GLOBALS['BE_MOD']['system']['ds_meta_imex'] = [
 ];
 
 /**
- * Add box element
- */
-$GLOBALS['TL_CTE']['texts']['ds_content_grid_start'] = 'Doublespark\Doublespark\Elements\ContentGridStartElement';
-$GLOBALS['TL_CTE']['texts']['ds_content_grid_end']   = 'Doublespark\Doublespark\Elements\ContentGridEndElement';
-
-/**
  * Mark elements as wrappers
  */
 $GLOBALS['TL_WRAPPERS']['start'][] = 'ds_content_grid_start';

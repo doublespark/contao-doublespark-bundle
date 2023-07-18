@@ -74,11 +74,11 @@ class BannerImageElementController extends AbstractContentElementController
 
         $arrModel = $model->row();
 
-        $template->set('addText', $arrModel['addText'] ?? false);
+        $template->set('addText', $arrModel['ds_addText'] ?? false);
         $template->set('text', $arrModel['text'] ?? '');
 
         // Add OG tag for image
-        $useOgTag = $arrModel['useOpenGraphImgTag'] ?? false;
+        $useOgTag = $arrModel['ds_useOpenGraphImgTag'] ?? false;
 
         if($useOgTag && !isset($GLOBALS['TL_HEAD']['ogImage']))
         {

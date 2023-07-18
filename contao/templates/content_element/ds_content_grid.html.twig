@@ -1,0 +1,8 @@
+{% if type == 'ds_content_grid_start' %}
+<div {% if element_html_id %}id="{{ element_html_id }}" {% endif %}class="content-{{ type }} cg-cols-{{ columns }}{% if element_css_classes %} {{ element_css_classes }}{% endif %}">
+<div class="inside">
+{% else %}
+</div></div>
+{% endif %}
+
+
