@@ -44,6 +44,12 @@ class BannerImageElementController extends AbstractContentElementController
             ->setMetadata($model->getOverwriteMetadata())
             ->buildIfResourceExists();
 
+        // If we can't get the image, return empty string
+        if(!$figure)
+        {
+            return new Response('');
+        }
+
         $template->set('image', $figure);
 
         $arrImage = $figure->getImage()->getImg();
