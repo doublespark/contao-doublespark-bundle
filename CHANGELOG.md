@@ -1,5 +1,8 @@
 # Change log
 
+## Version 2.3.2 (2023-08-07)
+- Remove banner image element
+
 ## Version 2.3.0 (2023-07-18)
 - Add banner image element
 - Refactor elements into Contao 5 fragment controllers
