@@ -1,41 +1,90 @@
 /**
  * Adds a floating save button
  */
-window.addEvent('domready', function() {
 
-    var saveButton      = document.getElementById('save');
-    var saveCloseButton = document.getElementById('saveNclose');
+const contaoSaveButton      = document.getElementById('save');
+const contaoSaveCloseButton = document.getElementById('saveNclose');
 
-    if(saveButton && saveCloseButton) {
+if(contaoSaveButton && contaoSaveCloseButton) {
 
-        var container = $('container');
-
-        var saveButtonHTML = Elements.from('<div class="custom-save"><a href="#">Save</a></div>');
-        var saveClosebuttonHTML = Elements.from('<div class="custom-save"><a href="#">Save & Close</a></div>');
-
-        var positionButtons = function () {
-            var scroll = document.getScroll();
-            saveButtonHTML.setStyle('top', scroll.y + 2);
-            saveClosebuttonHTML.setStyle('top', scroll.y + 60);
-        };
-
-        positionButtons();
-
-        saveButtonHTML[0].inject(container);
-        saveClosebuttonHTML[0].inject(container);
-
-        saveButtonHTML[0].addEvent('click', function () {
-            saveButton.click();
-            return false;
-        });
-
-        saveClosebuttonHTML[0].addEvent('click', function () {
-            saveCloseButton.click();
-            return false;
-        });
-
-        window.addEvent('scroll', function () {
-            positionButtons();
-        });
+    const createButton = (buttonText) => {
+        const button = document.createElement('button');
+        button.innerText = buttonText;
+        return button;
     }
-});
+
+    const body = document.querySelector('body');
+
+    const saveButton = createButton('Save');
+    const saveAndCloseButton = createButton('Save & Close');
+
+    const buttonsContainer = document.createElement('div');
+    buttonsContainer.classList.add('custom-buttons');
+    buttonsContainer.appendChild(saveButton);
+    buttonsContainer.appendChild(saveAndCloseButton);
+
+    const actionsButton = createButton('Actions');
+
+    const buttonWrapper = document.createElement('div');
+    buttonWrapper.classList.add('custom-buttons-wrapper');
+
+    // Reload previous state
+    if(getCookie('dsButton') === '1')
+    {
+        buttonWrapper.classList.add('visible');
+    }
+
+    buttonWrapper.appendChild(actionsButton);
+    buttonWrapper.appendChild(buttonsContainer);
+
+    body.appendChild(buttonWrapper);
+
+    actionsButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        if(buttonWrapper.classList.contains('visible'))
+        {
+            setCookie('dsButton', '0', 365);
+        }
+        else
+        {
+            setCookie('dsButton', '1', 365);
+        }
+        buttonWrapper.classList.toggle('visible');
+        return false;
+    });
+
+    saveButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        contaoSaveButton.click();
+        return false;
+    });
+
+    saveAndCloseButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        contaoSaveCloseButton.click();
+        return false;
+    });
+
+    function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+}
